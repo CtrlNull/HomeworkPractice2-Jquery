@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <p>First Name:</p>
+        <input type="text" name="firstname" value="First Name" id="firstName">
+        <p>Last Name:</p>
+        <input type="text" name="lastname" value="Last Name" id="lastName">
+        <p>Email:</p>
+        <input type="email" name="" value="Email address" id="emailAddress">
+        <p>Password:</p>
+        <input type="password" name="" value="password" id="password">
+        <p></p>
+        <button type="button" id="submitInfo">Submit Information</button>
+        <h1 class="hidden" style="display: none">Information successfully submitted!</h1>
+        <p class="hidden" style="display: none" id="successMessage"></p>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        //"Hidden" class elements start hidden
+        // $('.hidden').hide();
+        // $(document).ready(function () {
+        //     //Button will submit info then create a paragraph
+        //     $("#submitInfo").click(function () {
+        //         $('.hidden').show();
+        //         $("#successMessage").text("Thank you " + $('#firstName').val() + " " + $('#lastName').val() + "! Please check for your confirmation email that was sent to " + $('#emailAddress').val() + ".")
+        //     });
+        // });
+
+        // Same thing using vanilla Javascript.
+        var firstName = getElementById("firstName").value,
+            lastName = getElementById("lastName").value,
+            emailAddress = getElementById("emailAddress").value;
+        document.getElementById("submitInfo").onclick = function () {
+            document.getElementsByClassName("hidden").style.display = "block";
+            document.getElementById("successMessage").textContent = "Thank you " + firstName + " " + lastName + "! Please check for you confirmation email that was sent to " + emailAddress + ".";
+
+        }
+    </script>
+</body>
+</html>

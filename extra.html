@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Register Page</title>
+</head>
+<body>
+    <form>
+        <h1>Register</h1>
+        <h2>First Name</h2>
+        <input type="text" placeholder="First Name" id="txtFirstName" />
+        <h2>Last Name</h2>
+        <input type="text" id="txtLastName" placeholder="Last Name" />
+        <h2>Email</h2>
+        <input type="text" id="txtEmail" placeholder="Email" />
+        <h2>Password</h2>
+        <input type="text" id="txtPassword" placeholder="Password" />&nbsp;
+
+        <!--Buttons-->
+        <input type="button" value="Submit" id="btnRegister" onclick="linkNames()" />
+    </form>
+
+    <!-- Output-->
+    <div id="dialog" title="Thank you!">
+        <p id="dialogMessage">Original Text</p>
+    </div>
+
+    <!-- JS/jQuery Links-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- V JS Below V -->
+    <script>
+
+        // DOMR
+
+        // Retrieving User Data
+        var linkNames = function () {
+            var firstName = $("#txtFirstName").val();
+            var lastName = $("#txtLastName").val();
+            var fullName = firstName + " " + lastName;
+            return fullName;
+        };
+
+        var getEmail = function () {
+            var email = $("#txtEmail").val();
+            return email;
+        };
+
+        // Upon submit display goodby message with user detail
+        var greetingPopup = function () {
+            var greeting = "Hello" + " " + linkNames() + "Your email is" + " " + getEmail();
+            return greeting;
+        }
+
+        //Dialog
+        $(function () {
+            $("#dialog").dialog({
+                autoOpen: false,
+                show: {
+                    effect: "scale",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+
+            $("#btnRegister").on("click", function () {
+                $("#dialog").dialog("open");
+                $("#dialogMessage").text(greetingPopup);
+            });
+        });
+
+    </script>
+</body>
+</html>
